@@ -1,0 +1,78 @@
+# ============================================================
+# Name: NeonBash 0.1.0
+# HACKER TERMUX CONFIGURATION
+# Written by: Alienkrishn (github.com/Anon4You)
+# Theme: NeoGreen - Pure Hacker Vibe
+# ============================================================
+
+# Hacker green LESS termcap
+GREEN=$(tput setaf 2)
+BRIGHT_GREEN=$(tput setaf 10 2>/dev/null || tput setaf 2)
+BG_GREEN=$(tput setab 2)
+BOLD=$(tput bold)
+DIM=$(tput dim 2>/dev/null || tput setaf 2)
+UNDERLINE=$(tput smul)
+REVERSE=$(tput rev)
+RESET=$(tput sgr0)
+
+export LESS_TERMCAP_mb="${BOLD}${BRIGHT_GREEN}"
+export LESS_TERMCAP_md="${BOLD}${BRIGHT_GREEN}"
+export LESS_TERMCAP_me="${RESET}"
+export LESS_TERMCAP_se="${RESET}"
+export LESS_TERMCAP_so="${BOLD}${BRIGHT_GREEN}${BG_GREEN}"
+export LESS_TERMCAP_ue="${RESET}"
+export LESS_TERMCAP_us="${UNDERLINE}${BRIGHT_GREEN}"
+export LESS_TERMCAP_mr="${REVERSE}"
+export LESS_TERMCAP_mh="${DIM}${GREEN}"
+
+export LESS="-R"
+export MANPAGER="less -R"
+export PAGER="less -R"
+export BAT_THEME="ansi"
+export USER=$(whoami)
+
+# Force all colours to green (for ls/lsd)
+export LS_COLORS="di=1;32:ex=1;32:fi=32:*.txt=32:*.sh=32:*.py=32:*.c=32:*.cpp=32:*.md=32"
+
+# Navigation shortcuts
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# lsd aliases (replaces ls)
+alias ls='lsd'
+alias la='lsd -a'
+alias ll='lsd -l'
+alias lh='lsd -lh'
+alias cat='bat -pp'
+
+# Hacker prompt colours (true colour)
+NEON_GREEN='\033[38;2;0;255;0m'
+BRIGHT_GREEN='\033[38;2;80;255;80m'
+DARK_GREEN='\033[38;2;0;100;0m'
+DIM_GREEN='\033[38;2;0;150;0m'
+RED='\033[38;2;255;0;0m'
+RESET='\033[0m'
+
+PROMPT_COMMAND='EXIT_STATUS=$?'
+exit_symbol() {
+    if [[ $EXIT_STATUS -eq 0 ]]; then
+        echo -e "${NEON_GREEN}✔${RESET}"
+    else
+        echo -e "${RED}✘${RESET}"
+    fi
+}
+
+git_branch() {
+    git branch 2>/dev/null | grep '*' | sed 's/* //'
+}
+
+PS1="\[${DIM_GREEN}\]┌─[\[${NEON_GREEN}\]\u\[${DIM_GREEN}\]@\[${NEON_GREEN}\]\h\[${DIM_GREEN}\]]─[\[${BRIGHT_GREEN}\]\w\[${DIM_GREEN}\]]"
+PS1+="\$( [[ -n \$(git_branch) ]] && echo \"─[\[${DARK_GREEN}\]\$(git_branch)\[${DIM_GREEN}\]]\" )"
+PS1+="\n\[${DIM_GREEN}\]└─[\$(exit_symbol)\[${NEON_GREEN}\]\\$\[${RESET}\] "
+
+exec ~/.config/motd.sh
+source blesh

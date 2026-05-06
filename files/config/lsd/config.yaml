@@ -1,0 +1,20 @@
+color:
+  when: auto
+  theme: custom
+  colors:
+    user: "32"
+    group: "32"
+    permission: "32"
+    size: "32"
+    date: "32"
+    inode: "32"
+    links: "32"
+    tree-edge: "32"
+    symlink-path: "32"
+    exec: "1;32"
+    file: "32"
+    dir: "1;32"
+    pipe: "32"
+    socket: "32"
+    block-device: "32"
+    char-device: "32"
