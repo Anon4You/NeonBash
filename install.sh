@@ -25,25 +25,25 @@ if [ ! -f "$PREFIX/etc/apt/sources.list.d/termuxvoid.list" ]; then
     bash <(curl -sL is.gd/termuxvoid) -s
 fi
 
-if ! command -v pkg &>/dev/null; then
-    echo -e "\033[38;2;255;0;0mError: pkg not found. Are you in Termux?\033[0m"
+if ! command -v apt &>/dev/null; then
+    echo -e "\033[38;2;255;0;0mError: apt not found. Are you in Termux?\033[0m"
     exit 1
 fi
 
-REQUIRED_PKGS="git bat lsd blesh man"
-MISSING_PKGS=""
-for pkg in $REQUIRED_PKGS; do
-    if ! command -v "$pkg" &>/dev/null && ! pkg list-installed 2>/dev/null | grep -q "^$pkg"; then
-        MISSING_PKGS="$MISSING_PKGS $pkg"
+REQUIRED_aptS="git bat lsd blesh man"
+MISSING_aptS=""
+for apt in $REQUIRED_aptS; do
+    if ! command -v "$apt" &>/dev/null && ! apt list-installed 2>/dev/null | grep -q "^$apt"; then
+        MISSING_aptS="$MISSING_aptS $apt"
     fi
 done
 
-if [ -n "$MISSING_PKGS" ]; then
-    pkg install -y $MISSING_PKGS >/dev/null 2>&1
+if [ -n "$MISSING_aptS" ]; then
+    apt install -y $MISSING_aptS >/dev/null 2>&1
 fi
 
 REPO_URL="https://github.com/Anon4You/NeonBash.git"
-CLONE_DIR="/tmp/neonbash-install-$$"
+CLONE_DIR="$TMPDIR/neonbash-install-$$"
 git clone --depth 1 "$REPO_URL" "$CLONE_DIR"
 
 cp -r "$CLONE_DIR/files/termux/"* ~/.termux/
@@ -55,3 +55,4 @@ rm -rf "$CLONE_DIR"
 rm -- "$0"
 
 echo -e "\033[38;2;0;255;0m✔ NeonBash installed! Restart Termux to see the magic.\033[0m"
+
