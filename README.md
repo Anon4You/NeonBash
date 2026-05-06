@@ -29,7 +29,7 @@ Auto‑suggestions · Syntax highlighting · `lsd` · `bat` · Pure green aesthe
 ### 📦 Installation
 
 ```
-curl https://github.com/Anon4You/NeonBash/raw/main/install.sh && bash install.sh
+curl -sLO https://github.com/Anon4You/NeonBash/raw/main/install.sh && bash install.sh
 ```
 
 </div>
