@@ -39,7 +39,7 @@ for apt in $REQUIRED_aptS; do
 done
 
 if [ -n "$MISSING_aptS" ]; then
-    apt install -y $MISSING_aptS >/dev/null 2>&1
+    apt install -y $MISSING_aptS
 fi
 
 REPO_URL="https://github.com/Anon4You/NeonBash.git"
