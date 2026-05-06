@@ -19,6 +19,9 @@ Auto‑suggestions · Syntax highlighting · `lsd` · `bat` · Pure green aesthe
 
 </div>
 
+> [!NOTE]
+> It's not fish, not zsh — but bash with everything you ever wanted.
+
 ---
 
 <div align="center">
