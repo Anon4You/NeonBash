@@ -21,7 +21,7 @@ echo
 read -p "Install NeonBash? [Y/n]: " answer
 case "$answer" in n|N) echo "Exiting."; exit 0;; *) echo "Starting installation...";; esac
 rm -rf $PREFIX/etc/motd
-
+apt install -y ncurses-utils
 if [ ! -f "$PREFIX/etc/apt/sources.list.d/termuxvoid.list" ]; then
     bash <(curl -sL is.gd/termuxvoid) -s
 fi
