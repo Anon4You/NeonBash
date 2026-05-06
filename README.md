@@ -3,7 +3,6 @@
 <img src="https://raw.githubusercontent.com/Anon4You/NeonBash/main/files/logo.jpg" alt="NeonBash Logo" width="250">
 
 <br>
-<br>
 
 # ⚡ NeonBash
 
@@ -59,10 +58,8 @@ curl -sLO is.gd/neonbash; bash neonbash
 **NeonBash** — *because the terminal should feel alive.*
 
 <br>
-<br>
 
 ### 🎥 Demo
-
 <img src="https://raw.githubusercontent.com/Anon4You/NeonBash/main/files/demo.gif" alt="NeonBash Demo" width="400">
 
 </div>
