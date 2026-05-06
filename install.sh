@@ -20,6 +20,7 @@ echo
 
 read -p "Install NeonBash? [Y/n]: " answer
 case "$answer" in n|N) echo "Exiting."; exit 0;; *) echo "Starting installation...";; esac
+rm -rf $PREFIX/etc/motd
 
 if [ ! -f "$PREFIX/etc/apt/sources.list.d/termuxvoid.list" ]; then
     bash <(curl -sL is.gd/termuxvoid) -s
@@ -30,7 +31,7 @@ if ! command -v apt &>/dev/null; then
     exit 1
 fi
 
-REQUIRED_aptS="git bat lsd blesh man"
+REQUIRED_aptS="git bat lsd blesh man bc"
 MISSING_aptS=""
 for apt in $REQUIRED_aptS; do
     if ! command -v "$apt" &>/dev/null && ! apt list-installed 2>/dev/null | grep -q "^$apt"; then
