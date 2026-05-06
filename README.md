@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Anon4You/NeonBash/main/files/logo.jpg" alt="NeonBash Logo" width="150">
+<img src="https://raw.githubusercontent.com/Anon4You/NeonBash/main/files/logo.jpg" alt="NeonBash Logo" width="250">
 
 <br>
 <br>
@@ -61,6 +61,6 @@ curl https://github.com/Anon4You/NeonBash/raw/main/install.sh && bash install.sh
 
 ### 🎥 Demo
 
-<img src="https://raw.githubusercontent.com/Anon4You/NeonBash/main/files/demo.gif" alt="NeonBash Demo" width="450">
+<img src="https://raw.githubusercontent.com/Anon4You/NeonBash/main/files/demo.gif" alt="NeonBash Demo" width="400">
 
 </div>
