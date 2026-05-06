@@ -74,5 +74,5 @@ PS1="\[${DIM_GREEN}\]┌─[\[${NEON_GREEN}\]\u\[${DIM_GREEN}\]@\[${NEON_GREEN}\
 PS1+="\$( [[ -n \$(git_branch) ]] && echo \"─[\[${DARK_GREEN}\]\$(git_branch)\[${DIM_GREEN}\]]\" )"
 PS1+="\n\[${DIM_GREEN}\]└─[\$(exit_symbol)\[${NEON_GREEN}\]\\$\[${RESET}\] "
 
-exec ~/.config/motd.sh
+bash ~/.config/motd.sh
 source blesh
