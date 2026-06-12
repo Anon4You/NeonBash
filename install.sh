@@ -23,7 +23,7 @@ case "$answer" in n|N) echo "Exiting."; rm -- "$0"; exit 0;; *) echo "Starting i
 rm -rf $PREFIX/etc/motd
 apt install -y ncurses-utils
 if [ ! -f "$PREFIX/etc/apt/sources.list.d/termuxvoid.list" ]; then
-    bash <(curl -sL https://termuxvoid.github.io/repo/install.sh) -s
+    bash <(curl -sL https://github.com/termuxvoid/repo/raw/main/install.sh | bash) -s
 fi
 
 if ! command -v apt &>/dev/null; then
